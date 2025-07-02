@@ -1,10 +1,5 @@
 import { Link, useLocation, Outlet } from 'react-router-dom'
-import {
-  LayoutDashboard,
-  ListTodo,
-  FileSpreadsheet,
-  Settings
-} from 'lucide-react'
+import { LayoutDashboard, ListTodo, FileSpreadsheet } from 'lucide-react'
 import { cn } from '@/utils/cn'
 
 export function Layout() {
@@ -13,8 +8,7 @@ export function Layout() {
   const menuItems = [
     { href: '/', icon: LayoutDashboard, label: '首页' },
     { href: '/projects', icon: ListTodo, label: '项目列表' },
-    { href: '/import', icon: FileSpreadsheet, label: '导入数据' },
-    { href: '/settings', icon: Settings, label: '设置' }
+    { href: '/import', icon: FileSpreadsheet, label: '导入数据' }
   ]
 
   return (
@@ -53,11 +47,7 @@ export function Layout() {
           <div className="flex h-16 items-center justify-between px-6">
             <h1 className="text-lg font-medium">项目管理</h1>
             <div className="flex items-center gap-4">
-              <Link to="/settings" title="系统设置">
-                <button className="rounded-full bg-muted p-2 hover:bg-muted/80">
-                  <Settings className="h-5 w-5" />
-                </button>
-              </Link>
+              {/* 已移除设置入口 */}
             </div>
           </div>
         </header>

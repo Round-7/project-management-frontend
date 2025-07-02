@@ -7,9 +7,6 @@ export default defineConfig(({ mode }) => {
   // 加载环境变量
   const env = loadEnv(mode, process.cwd())
 
-  // 默认后端API地址
-  const apiUrl = localStorage.getItem('apiUrl') || env.VITE_API_URL
-
   return {
     plugins: [react()],
     resolve: {
@@ -21,7 +18,7 @@ export default defineConfig(({ mode }) => {
       proxy: {
         // 将所有/api开头的请求代理到后端服务器
         '/api': {
-          target: apiUrl,
+          target: env.VITE_API_URL,
           changeOrigin: true
         }
       }
