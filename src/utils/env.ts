@@ -6,7 +6,8 @@
  * 获取API基础URL
  */
 export const getApiBaseUrl = (): string => {
-  return import.meta.env.VITE_API_URL
+  // 始终使用相对路径，避免混合内容问题
+  return '/api'
 }
 
 /**

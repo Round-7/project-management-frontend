@@ -8,7 +8,7 @@ import { api } from '@/utils'
  */
 export const getHealthInfo = async (): Promise<HealthInfo> => {
   const [error, response] = await to(
-    api.get<ApiResponse<HealthInfo>>('/api/health')
+    api.get<ApiResponse<HealthInfo>>('/health')
   )
 
   if (error) {

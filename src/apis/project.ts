@@ -15,7 +15,7 @@ import type {
  */
 export const getProjects = async (params: ProjectQueryParams = {}) => {
   const [error, response] = await to(
-    api.get<ApiResponse<PaginatedResponse<Project>>>('/api/projects', {
+    api.get<ApiResponse<PaginatedResponse<Project>>>('/projects', {
       params
     })
   )
@@ -32,7 +32,7 @@ export const getProjects = async (params: ProjectQueryParams = {}) => {
  */
 export const getProjectById = async (id: string): Promise<Project> => {
   const [error, response] = await to(
-    api.get<ApiResponse<Project>>(`/api/projects/${id}`)
+    api.get<ApiResponse<Project>>(`/projects/${id}`)
   )
   if (error) {
     throw error
@@ -46,7 +46,7 @@ export const getProjectById = async (id: string): Promise<Project> => {
  */
 export const getProjectStats = async (): Promise<ProjectStats> => {
   const [error, response] = await to(
-    api.get<ApiResponse<ProjectStats>>('/api/projects/stats')
+    api.get<ApiResponse<ProjectStats>>('/projects/stats')
   )
   if (error) {
     console.error('获取项目统计数据失败:', error)
@@ -68,7 +68,7 @@ export const importProjects = async (
 
   const [error, response] = await to(
     api.post<ApiResponse<{ successCount: number; failCount: number }>>(
-      '/api/projects/import',
+      '/projects/import',
       formData,
       {
         headers: {
@@ -89,7 +89,7 @@ export const importProjects = async (
  */
 export const exportProjects = async (query?: string): Promise<void> => {
   // 使用blob方式下载文件
-  const response = await api.get('/api/projects/export', {
+  const response = await api.get('/projects/export', {
     params: { query },
     responseType: 'blob'
   })
