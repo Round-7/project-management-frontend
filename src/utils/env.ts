@@ -6,7 +6,7 @@
  * 获取API基础URL
  */
 export const getApiBaseUrl = (): string => {
-  return import.meta.env.VITE_API_URL || 'http://localhost:8000/api'
+  return import.meta.env.VITE_API_URL || '/api'
 }
 
 /**

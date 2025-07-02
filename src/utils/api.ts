@@ -2,7 +2,7 @@ import axios from 'axios'
 import { getApiBaseUrl } from './env'
 
 // 获取API基础URL：优先使用环境变量，其次使用localStorage，最后使用默认值
-const getBaseUrl = (): string => {
+export const getBaseUrl = (): string => {
   // 首先使用环境变量工具获取API URL
   const envApiUrl = getApiBaseUrl()
 
