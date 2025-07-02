@@ -1,12 +1,14 @@
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'node:path'
-import { getBaseUrl } from './src/utils/api'
 
 // https://vite.dev/config/
-export default defineConfig(() => {
+export default defineConfig(({ mode }) => {
+  // 加载环境变量
+  const env = loadEnv(mode, process.cwd())
+
   // 默认后端API地址
-  const apiUrl = getBaseUrl()
+  const apiUrl = localStorage.getItem('apiUrl') || env.VITE_API_URL
 
   return {
     plugins: [react()],
