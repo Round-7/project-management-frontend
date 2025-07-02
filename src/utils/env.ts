@@ -6,14 +6,14 @@
  * 获取API基础URL
  */
 export const getApiBaseUrl = (): string => {
-  return import.meta.env.VITE_API_URL || '/api'
+  return import.meta.env.VITE_API_URL
 }
 
 /**
  * 获取应用版本号
  */
 export const getAppVersion = (): string => {
-  return import.meta.env.VITE_APP_VERSION || '0.1.0'
+  return import.meta.env.VITE_APP_VERSION
 }
 
 /**
